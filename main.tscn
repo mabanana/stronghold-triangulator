@@ -1,0 +1,128 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtrquljjj8qx5"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_808wn"]
+[ext_resource type="Texture2D" uid="uid://dre4d4mfga5j" path="res://ender_eye.png" id="2_6mf5i"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_808wn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Control" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 2
+text = "Fill in the positions in the order of x coordinate, z coordinate, view angle, then press calculate."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/HBoxContainer"]
+layout_mode = 2
+text = "Position 1"
+
+[node name="x1" type="TextEdit" parent="CanvasLayer/MarginContainer/Control/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "-3"
+
+[node name="z1" type="TextEdit" parent="CanvasLayer/MarginContainer/Control/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "25"
+
+[node name="angle1" type="TextEdit" parent="CanvasLayer/MarginContainer/Control/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-113"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/HBoxContainer2"]
+layout_mode = 2
+text = "Position 2"
+
+[node name="x2" type="TextEdit" parent="CanvasLayer/MarginContainer/Control/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "30"
+
+[node name="z2" type="TextEdit" parent="CanvasLayer/MarginContainer/Control/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "63"
+
+[node name="angle2" type="TextEdit" parent="CanvasLayer/MarginContainer/Control/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-115"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/Control/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "CALCULATE"
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/Control/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.458824)
+position = Vector2(-42, 132)
+amount = 10
+lifetime = 8.0
+randomness = 1.0
+lifetime_randomness = 0.43
+texture = ExtResource("2_6mf5i")
+gravity = Vector2(0, 0)
+initial_velocity_min = 70.71
+initial_velocity_max = 414.14
+linear_accel_max = 34.34
+radial_accel_min = -24.24
+radial_accel_max = 64.17
+scale_amount_min = 0.05
+scale_amount_max = 0.2
+
+[connection signal="button_down" from="CanvasLayer/MarginContainer/Control/HBoxContainer3/Button" to="." method="_on_button_button_down"]
